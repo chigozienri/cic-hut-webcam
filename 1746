@@ -1,0 +1,833 @@
+ 
+
+<!DOCTYPE html>
+<html>
+<head>
+<title>
+Online Camera from CIC Hut Ben Nevis timelapse view</title>
+<meta name="description" content="Online weather data by Holfuy automatic mobile weather stations.">
+<meta name="keywords" content="paragliding, weather, station, solar, gsm, 3G, wind, surfing, automatic">
+<meta name="author" content="Holfuy">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Holfuy">
+<meta property="og:url" content="https://holfuy.com">
+<meta name="twitter:site" content="@holfuy_stations">
+<meta name="twitter:card" content="summary">
+
+<link rel="shortcut icon" href="/image/logo/favicon_32x32.png" />
+<link rel="apple-touch-icon" href="/image/logo/holfuy_logo_black_54.png">
+<link rel="apple-touch-icon" sizes="72x72" href="/image/logo/holfuy_logo_black_72.png"/>
+<link rel="apple-touch-icon" sizes="114x114" href="/image/logo/holfuy_logo_black_114.png"/>
+
+<link rel="stylesheet" type="text/css" href="/css/style.css?v=3.3" />
+<link rel="stylesheet" type="text/css" href="/css/stylesmall.css?v=3.3" />
+<link rel="stylesheet" href="/static/font/fa/css/font-awesome.css">
+
+<script src="/js/lib/j-min.js"></script>
+<script src="/js/lib/j-ui.js"></script>
+<script LANGUAGE="JavaScript" SRC="/js/main.js?v=3.3"></script>
+<meta property="og:title" content="Holfuy">
+<meta property="og:description" content="Check the latest webcamera pictures from CIC Hut Ben Nevis">
+	<meta property="og:image" content="http://api.holfuy.com/cam/s1746.jpg">
+	<meta name="og:image:type" content="image/jpeg" />
+	<meta name="twitter:image" content="http://api.holfuy.com/cam/s1746.jpg">
+
+	<style>
+	.block_small{
+		font-size:x-small;
+		margin:1px;
+		width:12.2%;
+		float:left;
+		}
+	.block_small p{
+		margin:0px;
+		}
+	.img_small{
+		width:100%;
+		}
+
+	.img_fix{
+		width:60%;
+		float:left;
+		}
+	.img_play{
+		opacity:0;
+		width:60%;
+		left:0;
+		position:absolute;
+		float:left;
+		zindex:100;
+		}
+	#info_box{
+		font-weight:bold;
+		float:left;
+		margin-top:0px;
+		width:40%;
+		
+		}
+	#cam_data td{
+		text-align:left;
+		width:40%;
+		}
+	#avg_tables{
+		
+		padding:0px;
+		margin:0px;
+		}
+	#info_texts{
+		color:#DDDDDD;
+		padding:10px;
+		}
+
+	#small_images{
+		width:100%;
+		margin-left:0;
+		}
+	.replay:hover{
+		color:red;
+		}
+	.replay{
+		color:black;
+		font-weight:bold;
+		padding:4px 12px;
+		background:yellow;
+		cursor:pointer;
+		}
+	#more_butt{
+		display:none;
+		}
+
+	/*camera*/
+	@media (max-width: 720px) {
+
+	#small_images{
+		display:none;
+		}
+	.img_fix{
+		width:100%;
+		}
+	.img_play{
+		display:none;
+		width:100%;
+		}
+	#info_box{
+		width:100%;
+		}
+	#more_butt{
+		display:block;
+		}
+	#small_hint{
+		display:none;
+		}
+	.block_small{
+		
+		width:24.4%;
+		}
+	}
+	</style>
+	<link rel="stylesheet" type="text/css" href="/css/rotate.css" />
+	<script>
+	    //for saving the user's processor time max 10 run
+		var run_cnt=1;
+		var movie_running=0;
+		var new_cam_IntervalId;
+		var act_img=0;
+		var stattr = {"id":"1746","short_name":"#1746","country":"GB","o_s":0,"o_e":0,"o2_s":0,"o2_e":0,"w_s":0,"w_e":0,"style":"U"};		
+		var photos = ["2023-11-30_17:21.jpg","2023-11-30_17:42.jpg","2023-11-30_18:01.jpg","2023-11-30_18:02.jpg","2023-11-30_18:21.jpg","2023-11-30_18:41.jpg","2023-11-30_19:01.jpg","2023-11-30_19:02.jpg","2023-11-30_19:21.jpg","2023-11-30_19:41.jpg","2023-11-30_20:01.jpg","2023-11-30_20:02.jpg","2023-11-30_20:21.jpg","2023-11-30_20:41.jpg","2023-11-30_20:42.jpg","2023-12-01_09:01.jpg","2023-12-01_09:21.jpg","2023-12-01_09:41.jpg","2023-12-01_10:01.jpg","2023-12-01_10:21.jpg","2023-12-01_10:41.jpg","2023-12-01_11:01.jpg","2023-12-01_11:21.jpg","2023-12-01_11:41.jpg","2023-12-01_12:01.jpg","2023-12-01_12:21.jpg","2023-12-01_12:41.jpg","2023-12-01_13:01.jpg","2023-12-01_13:41.jpg","2023-12-01_13:42.jpg","2023-12-01_14:01.jpg","2023-12-01_14:21.jpg","2023-12-01_14:41.jpg","2023-12-01_15:01.jpg","2023-12-01_15:21.jpg","2023-12-01_15:41.jpg","2023-12-01_16:01.jpg","2023-12-01_17:42.jpg","2023-12-01_17:43.jpg","2023-12-01_17:44.jpg","2023-12-01_17:45.jpg","2023-12-01_17:46.jpg","2023-12-01_17:47.jpg","2023-12-01_18:01.jpg","2023-12-01_18:02.jpg","2023-12-01_18:21.jpg","2023-12-01_18:41.jpg","2023-12-01_18:42.jpg","2023-12-01_19:02.jpg","2023-12-01_19:21.jpg","2023-12-01_19:41.jpg","2023-12-01_19:42.jpg","2023-12-01_20:01.jpg","2023-12-01_20:21.jpg","2023-12-01_20:22.jpg","2023-12-01_20:41.jpg"];		var last_img=0;
+		var image_cnt=56;
+		$(document).ready(function(){  
+			//new_cam_IntervalId=setInterval(new_img,250);
+			//movie_running=1;
+			setTimeout(set_img(56),1500);
+		});
+		function set_img(sel_img_num){
+		        window.scrollTo(0, 100);
+				if(act_img==sel_img_num)
+				  return;
+				if(sel_img_num==-1){
+					act_img++;
+					if(act_img>image_cnt)
+					   act_img=0;
+					}
+				else if(sel_img_num==-2){
+					act_img--;
+					if(act_img<0)
+					   act_img=image_cnt;
+					}
+				else
+					act_img=sel_img_num;
+				if(movie_running==1){
+				  clearInterval(new_cam_IntervalId);
+				  movie_running=0;
+				  $("#play_button i").addClass("fa-play");
+				  $("#play_button i").removeClass("fa-stop");
+				  }
+				$("#camimg"+act_img).show();
+				$("#camimg"+act_img).css('z-index',2);
+				$("#camimg"+act_img).css('opacity', 1);
+				$("#camimg"+last_img).css('opacity', 0);
+				$("#camimg"+last_img).css('z-index',0);
+				$("#act_img_info").html($("#img_small_"+(image_cnt-act_img)).attr('title'));
+				last_img=act_img;
+				}
+		function rePlay(){
+		    
+		    if(!movie_running){
+			    $(".img_play").show();
+				act_img=0;
+				//last_img=56;
+				new_cam_IntervalId=setInterval(new_img,250);
+				movie_running=1;
+				$("#play_button i").addClass("fa-stop");
+				$("#play_button i").removeClass("fa-play");
+				}
+			else{
+			    clearInterval(new_cam_IntervalId);
+				movie_running=0;
+				$("#play_button i").addClass("fa-play");
+				  $("#play_button i").removeClass("fa-stop");
+				}
+			}
+		function new_img() {
+			  
+			  $("#camimg"+last_img).animate({opacity: "0"},"slow");
+			  $("#camimg"+act_img).animate({opacity: "1"},"fast");
+			  $("#act_img_info").html($("#img_small_"+(image_cnt-act_img)).attr('title'));
+			  last_img=act_img;
+			  act_img+=1;
+			  if (act_img>56) {
+					act_img=0; 
+					run_cnt--; 
+					if(run_cnt==0){
+					   clearInterval(new_cam_IntervalId);
+					   movie_running=0;
+					   $("#play_button i").addClass("fa-play");
+					$("#play_button i").removeClass("fa-stop");
+					   act_img=56;
+					   }
+					}
+			  }
+		function loadsmall(){
+			$("#small_hint").show();
+			$("#small_images").show();
+			$("#more_butt").hide();
+			}
+	</script>
+	<style>
+	#top-bg{
+		background-image:url('/image/head/mk_head.jpg');
+	}
+</style>
+</head>
+<body>
+	<div id="login_box" >
+		<div id="login_error_msg"></div>
+	<FORM ACTION="/login" METHOD=post>
+
+	<INPUT NAME="email" placeholder="e-mail" value="" type="email" style="width:140px">
+	<br>
+	<INPUT NAME="password" placeholder="password" style="width:140px" TYPE="password">
+	<br>
+	<INPUT type=submit class="login_butt" NAME=submit_login VALUE="Login">
+	<a style="font-size: x-small;" href="/en/forgotpassword">Forgot Password?</a>
+	</FORM>
+	</div>
+<div  id="login_state" >
+	<table style=" border-spacing: 0px 0px; height:35px;">
+		<tr>
+			<td><a class="login_butt" style="font-size: 20px; padding: 0 4px; color:lightgray;" href="/en/favorites"><i title="Favorites" class="fa fa-star"></i></a></td>
+			<td><a class="login_butt" style="font-size: 20px; padding: 0 4px; color:lightgray;" href="/en/settings"><i title="Account settings" class="fa fa-cog"></i></a></td>
+						    <td style=" padding: 0 5px; max-width:50px; background:#DDAA44;"><a class="login_butt" href="/en/register">Register</a></td>
+			    <td onclick="showLogin();" style="background: white; width:45px; cursor: pointer; padding:0px 5px;"><a id="login_button" class="login_butt">Login</a></td>
+					</tr>
+	</table>  
+</div>
+<div id="top-line">
+		<div style="float:left;" id="hamburger">
+            <div></div>
+            <div></div>
+            <div></div>
+        </div>
+	    <div class = "just_small">
+			<input type="text" onkeyup="searchStations(false)" id="search_box"  style="float:left; " placeholder="name or id">	
+			<i class="fa fa-search"  style="padding-left:3px; font-size:1em; margin-top:10px; color:#AAAAAA;"></i>
+			<div id="output_list" class="just_small output_list"></div>
+		</div>
+
+<div class="clear">	</div>
+<div class="container">
+
+<nav>
+	<div class="container">
+		<div id="station_selector">
+		    <div class="no_small" style="padding-bottom: 3px; margin-bottom: 3px; font-size: 0.9em; border-bottom: 1px solid gray;">
+		    			    </div>
+		    <input class="no_small" type="text" onkeyup="searchStations(true)" id="search_box_normal" placeholder=" Search for name or ID">
+		    <span class="no_small"><i class="no_small fa fa-search"  style="margin-right:5px; margin-left:5px; font-size:1em; color:black; text-align: left;"></i></span>
+		    <div style="display: inline-block;">
+				<select id="regions_dd" class="station-selector"></select>
+				<img id="region_img" class="no_small" src="" style=" vertical-align:bottom; height:18px; ">
+			</div>
+			<div style="display: inline-block; padding-top:3px;">
+				<select id="stations_dd" class="station-selector"></select>
+			</div>
+			<div class="no_small button" style=" float:right;   font-size: medium; margin-right:5px;  background: #CCCCCC; margin-top:2px; padding:1px 4px; cursor:pointer;" onclick="$('#station_selector').hide();"><b> X </b></div>
+			<div class="clear"></div>
+		<div id="output_list_normal" class="output_list no_small"></div>
+		</div>
+	</div>
+	<ul>
+		<li class="h_button"><a href="/en"><i class="fa fa-home menu-icon"></i>HOME</a></li>
+		<li style="font-color:white;" class="h_button"><a href="/en/map"><i class="fa fa-globe menu-icon"></i>MAP</a>
+			<ul>
+				<li class="sub_menu" ><a href="/en/map/temperature">Temperature</a></li>
+				<li class="sub_menu" ><a href="/en/map/wind">Wind</a></li>
+			</ul>
+		</li>
+		<li class="h_button no_small"  id="stations_butt" style="cursor: pointer;" onclick="showStationSelector();"><a id="stations-icon"><i  class="fa fa-area-chart menu-icon"></i>STATIONS</a></li>
+		<li class="h_button"><a href="/en/about"><i class="fa fa-info-circle menu-icon"></i>ABOUT</a>
+			<ul>
+				<li class="sub_menu" ><a href="/en/about">About Holfuy</a></li>
+				<li class="sub_menu" ><a href="/en/faq">FAQ</a></li>
+				<li class="sub_menu" ><a href="/en/support">Support</a></li>
+				<li class="sub_menu" ><a href="/en/widget">Web modules</a></li>
+				<li class="sub_menu" ><a href="/en/references">References</a></li>
+			</ul>
+		</li>
+					<li style="" class="h_button"><a href="/en/shop"><i class="fa fa-shopping-cart menu-icon"></i>SHOP</a>
+				<ul>
+					<li class="sub_menu" ><a href="/en/shop">New station</a></li>
+					<li class="sub_menu" ><a href="/en/shopacc">Parts & Accessories</a></li>
+				</ul>
+			</li>
+				<li class="h_button"><a href="/en/contact"><i class="fa fa-envelope menu-icon"></i>CONTACT</a></li>
+	 			<li class="h_button just_small"><a> </a></li>
+		<li class="h_button just_small"><a> </a></li>
+		<li class="h_button just_small"><a> </a></li>
+	</ul>
+</nav>
+</div>
+</div>
+
+<div id="page_mask">
+</div>
+<script>
+var lang_def='en';
+var station_selector_showed=0;
+ $("#page_mask").click(function () {
+		$("body").css("height","auto");
+		$("body").css("overflow-y","auto");
+		$("html").css("height","auto");
+		$("html").css("overflow-y","auto");
+		$("nav").hide();
+		$("#page_mask").hide();
+		$("#login_state").show();	
+	});
+ $("#hamburger").click(function () {
+ 		showStationSelector();
+		var myHeight=0;
+		$("nav").css("min-height",window.innerHeight);
+		myHeight = $("nav").height();
+		$("#page_mask").css("height",myHeight);
+		$("body").css("height",myHeight);
+		$("body").css("overflow-y","hidden");
+		$("html").css("height",myHeight);
+		$("html").css("overflow-y","hidden");
+		$("nav").show();
+		$("#login_state").hide();
+		$("#page_mask").show();
+	
+	});
+$("#stations_butt").mouseenter(showStationSelector);
+$("#stations_butt").mouseout(function(){if(!$('#stations-icon').is(':hover'))setTimeout(hideStationSelector,200);});
+//init stations
+$("#regions_dd").change(function () {appendStations(document.getElementById('regions_dd').value);});
+$("#stations_dd").change(stationChanged);
+</script>
+<br> <div id="top-bg"></div>
+<div id="page"  class="container">
+<div id="header" class=" container">
+<img class="main_logo"  src="/image/logo/holfuy-logo.png">
+</div> 
+<div id="main" class="container" >      
+    
+
+<div id="home" style="margin:0px; padding:0px; background:white; position:relative; min-height:500px;">
+<div class="home_title"><i class="fa fa-camera"></i> Holfuy Webcamera: <b>CIC Hut Ben Nevis</b></div>
+
+    <div style="background:#333333;" > 
+	 	 <img class="img_fix" src="/dynamic/camsave/s1746/2023-12-01_20:41.jpg">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_20:41.jpg" id="camimg56">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_20:22.jpg" id="camimg55">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_20:21.jpg" id="camimg54">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_20:01.jpg" id="camimg53">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_19:42.jpg" id="camimg52">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_19:41.jpg" id="camimg51">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_19:21.jpg" id="camimg50">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_19:02.jpg" id="camimg49">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_18:42.jpg" id="camimg48">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_18:41.jpg" id="camimg47">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_18:21.jpg" id="camimg46">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_18:02.jpg" id="camimg45">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_18:01.jpg" id="camimg44">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_17:47.jpg" id="camimg43">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_17:46.jpg" id="camimg42">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_17:45.jpg" id="camimg41">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_17:44.jpg" id="camimg40">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_17:43.jpg" id="camimg39">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_17:42.jpg" id="camimg38">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_16:01.jpg" id="camimg37">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_15:41.jpg" id="camimg36">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_15:21.jpg" id="camimg35">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_15:01.jpg" id="camimg34">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_14:41.jpg" id="camimg33">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_14:21.jpg" id="camimg32">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_14:01.jpg" id="camimg31">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_13:42.jpg" id="camimg30">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_13:41.jpg" id="camimg29">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_13:01.jpg" id="camimg28">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_12:41.jpg" id="camimg27">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_12:21.jpg" id="camimg26">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_12:01.jpg" id="camimg25">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_11:41.jpg" id="camimg24">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_11:21.jpg" id="camimg23">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_11:01.jpg" id="camimg22">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_10:41.jpg" id="camimg21">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_10:21.jpg" id="camimg20">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_10:01.jpg" id="camimg19">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_09:41.jpg" id="camimg18">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_09:21.jpg" id="camimg17">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-12-01_09:01.jpg" id="camimg16">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_20:42.jpg" id="camimg15">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_20:41.jpg" id="camimg14">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_20:21.jpg" id="camimg13">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_20:02.jpg" id="camimg12">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_20:01.jpg" id="camimg11">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_19:41.jpg" id="camimg10">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_19:21.jpg" id="camimg9">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_19:02.jpg" id="camimg8">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_19:01.jpg" id="camimg7">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_18:41.jpg" id="camimg6">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_18:21.jpg" id="camimg5">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_18:02.jpg" id="camimg4">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_18:01.jpg" id="camimg3">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_17:42.jpg" id="camimg2">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2023-11-30_17:21.jpg" id="camimg1">
+	 	<div id="info_box">
+	<div id="info_texts">
+	<span class="replay" id="play_button" onclick="rePlay();"><i class="fa fa-play"></i></span>
+	<span class="replay"  onclick="set_img(-2);"><i class="fa fa-backward"></i></span>
+	
+	<span class="replay" onclick="set_img(-1);"><i class="fa fa-forward"></i></span>
+	<i style="font-size:larger;" class="fa fa-info-circle"></i>
+	<span id="act_img_info" style="font-size:smaller;"></span>
+	<hr>
+		<table id="cam_data">
+		<tr><td>Last image: </td><td>2023-12-01 19:41 GMT</td></tr>
+		<tr><td>Ambient temp.:</td><td> -2.9 °C</td></tr>
+		<tr><td>Mode: Night (OFF) </td><td>(Light: 0/1000)</td></tr>
+	</table>
+	</div>
+	<hr>
+	<div id="avg_tables">
+	<style>
+.hour_table{
+	table-layout: fixed; 
+	padding:0px;
+	margin:0px;
+	font-size:smaller;
+	font-weight:bold;
+	border-spacing: 0px;
+	border: 1px solid #999999;
+	border-left: 0;
+
+}
+td{
+	text-align: center;
+}
+.outer {
+	position:relative;
+	margin:2px 4px;
+	background:white;
+}
+.inner {
+	overflow-x:auto;
+	overflow-y:visible;
+	margin-left:80px;
+}
+.h_header{
+	position:absolute;
+	left:0px;
+	width:80px;
+	font-size:1em;
+	text-align:left;
+	border-bottom: 0px solid #DDDDDD;
+}
+                 
+.h_pt{
+	width:30px;
+	min-width:30px;
+	max-width:30px;
+	background-color:white;
+}  
+.time_highlight{
+	font-size:larger;
+	background-color:#444444;
+	color:white;	
+	font-weight:800%; 
+	padding:1px 3px;
+}      
+	.h_img{
+	width:20px;
+}                   
+.w_dir{
+     background : #CCCCCC;
+	 font-size:large;
+}
+
+</style>
+
+
+<div class="outer" style="font-size:smaller;">
+			 <div class="inner">	
+<table class="hour_table"><tr ><td class="h_header">Time</td>	
+  
+<td class="h_pt"><b class="time_highlight">18h</b></td><td class="h_pt">18:15</td><td class="h_pt">18:30</td><td class="h_pt">18:45</td><td class="h_pt"><b class="time_highlight">19h</b></td><td class="h_pt">19:15</td><td class="h_pt">19:30</td><td class="h_pt">19:45</td><td class="h_pt"><b class="time_highlight">20h</b></td><td class="h_pt">20:15</td><td class="h_pt">20:30</td><td class="h_pt">20:45</td><td class="h_pt"><b class="time_highlight">21h</b></td><td class="h_pt">21:15</td><td class="h_pt">21:30</td><td class="h_pt">21:45</td><td class="h_pt"><b class="time_highlight">22h</b></td><td class="h_pt">22:15</td><td class="h_pt">22:30</td><td class="h_pt">22:45</td></tr><tr style="height:1.9em; font-size:larger;"><td class="h_header" style=" font-size:smaller; padding-top:5px;">Speed</td><td style="background:#99ffff;">1.9</td><td style="background:#66ffff;">2.5</td><td style="background:#00ffff;">3.7</td><td style="background:#66ffff;">2.5</td><td style="background:#99ffff;">1.9</td><td style="background:#00ffff;">3.7</td><td style="background:#00ffe5;">5</td><td style="background:#00ffe5;">4.3</td><td style="background:#00ffe5;">5</td><td style="background:#00ffcc;">5.6</td><td style="background:#00ffe5;">5</td><td style="background:#00ffff;">3.7</td><td style="background:#00ffff;">3.7</td><td style="background:#00ffcc;">5.6</td><td style="background:#00ffe5;">4.3</td><td style="background:#00ffcc;">5.6</td><td style="background:#00ffff;">3.7</td><td style="background:#00ffe5;">4.3</td><td style="background:#00ffff;">3.7</td><td style="background:#66ffff;">2.5</td></tr><tr><td class="h_header">Gust <span style="font-size: smaller;"> (mph)</span></td><td bgcolor="#00ffe5">4.3</td><td bgcolor="#00ffb2">6.2</td><td bgcolor="#00ffcc">5.6</td><td bgcolor="#00ffe5">5</td><td bgcolor="#00ffe5">5</td><td bgcolor="#00ff99">6.8</td><td bgcolor="#00ffcc">5.6</td><td bgcolor="#00ffcc">5.6</td><td bgcolor="#00ff99">6.8</td><td bgcolor="#00ff7f">7.4</td><td bgcolor="#00ffb2">6.2</td><td bgcolor="#00ffcc">5.6</td><td bgcolor="#00ffe5">5</td><td bgcolor="#00ffb2">6.2</td><td bgcolor="#00ffcc">5.6</td><td bgcolor="#00ff7f">7.4</td><td bgcolor="#00ffcc">5.6</td><td bgcolor="#00ffb2">6.2</td><td bgcolor="#00ffb2">6.2</td><td bgcolor="#00ffe5">4.3</td></tr><tr ><td class="h_header" style="padding-top:5px;">Direction</td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-140"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-180"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-190"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-110"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-80"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-200"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-200"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-210"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-220"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-190"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-190"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-200"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-190"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-210"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-200"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-210"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-200"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-200"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-180"></i></td><td class="h_img w_dir" style="background:white;"><i class="fa fa-long-arrow-down rotate-140"></i></td></tr><tr><td class="h_header">Direction<br><span style="font-size: smaller;">Deg.</span></td><td>SE<br>142°</td><td>S<br>184°</td><td>SSW<br>192°</td><td>ESE<br>108°</td><td>E<br>80°</td><td>SSW<br>199°</td><td>SSW<br>202°</td><td>SSW<br>212°</td><td>SW<br>217°</td><td>SSW<br>194°</td><td>S<br>188°</td><td>SSW<br>198°</td><td>SSW<br>192°</td><td>SW<br>214°</td><td>SSW<br>204°</td><td>SSW<br>211°</td><td>SSW<br>201°</td><td>SSW<br>200°</td><td>S<br>178°</td><td>SE<br>140°</td></tr><tr><td class="h_header">Humidity <span style="font-size: smaller;"> (%)</span></td><td bgcolor="#9393ff">84.6</td><td bgcolor="#9494ff">83.9</td><td bgcolor="#9494ff">83.9</td><td bgcolor="#9595ff">83.2</td><td bgcolor="#9292ff">85.5</td><td bgcolor="#9494ff">84.3</td><td bgcolor="#9292ff">85.5</td><td bgcolor="#9292ff">85.3</td><td bgcolor="#9292ff">85.2</td><td bgcolor="#9191ff">86.1</td><td bgcolor="#9494ff">84.3</td><td bgcolor="#9090ff">87.1</td><td bgcolor="#9090ff">86.8</td><td bgcolor="#9090ff">86.8</td><td bgcolor="#9292ff">85.7</td><td bgcolor="#9090ff">87.3</td><td bgcolor="#9292ff">85.3</td><td bgcolor="#9191ff">85.9</td><td bgcolor="#9595ff">83.3</td><td bgcolor="#9393ff">84.9</td></tr><tr><td class="h_header">Air . <span style="font-size: smaller;"> (°C)</span></td><td bgcolor="#c6c6ff">-2.9</td><td bgcolor="#c7c7ff">-2.8</td><td bgcolor="#cacaff">-2.6</td><td bgcolor="#cbcbff">-2.5</td><td bgcolor="#c6c6ff">-2.9</td><td bgcolor="#c9c9ff">-2.7</td><td bgcolor="#c2c2ff">-3.3</td><td bgcolor="#c3c3ff">-3.2</td><td bgcolor="#c3c3ff">-3.2</td><td bgcolor="#bfbfff">-3.5</td><td bgcolor="#c4c4ff">-3.1</td><td bgcolor="#bdbdff">-3.7</td><td bgcolor="#bebeff">-3.6</td><td bgcolor="#bcbcff">-3.8</td><td bgcolor="#bfbfff">-3.5</td><td bgcolor="#bbbbff">-3.9</td><td bgcolor="#c2c2ff">-3.3</td><td bgcolor="#c0c0ff">-3.4</td><td bgcolor="#c9c9ff">-2.7</td><td bgcolor="#c5c5ff">-3.0</td>	</tr>
+</table>
+</div>
+</div>
+<script>
+	var inners=document.getElementsByClassName("inner");
+	for(var i=0; i<inners.length; i++)
+		inners[i].scrollLeft=1000;
+</script>
+	<div class="replay" style="width:auto; padding:0px; margin:0px 4px; cursor:pointer;" onclick="new function() { window.location.href = '/en/weather/1746'; }"><center>More weather data</center></div>
+	 
+	</div>
+	<div id="more_butt" class="replay" style="width:auto; padding:10px 0; margin-top:10px;" onclick="loadsmall();"><center>+ Click on me for more images +</center></div>
+	<div class="hintbox" id="small_hint" style="padding:10px;">
+	
+				<i class="fa fa-info-circle info-icon "  style=" font-size:larger; color:white;"></i>Click on the small images, for enlarging.
+	</div>
+	</div>
+	<div class="clear"></div>
+	</div>
+	<div id="small_images">
+					<div class="block_small">
+			 <img class="img_small" id="img_small_0" title="2023-12-01 19:41" onclick="set_img(56)" src="/dynamic/camsave/s1746/2023-12-01_20:41.jpg">
+			 <p>2023-12-01 19:41 s:527kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_1" title="2023-12-01 19:22" onclick="set_img(55)" src="/dynamic/camsave/s1746/2023-12-01_20:22.jpg">
+			 <p>2023-12-01 19:22 s:542kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_2" title="2023-12-01 19:21" onclick="set_img(54)" src="/dynamic/camsave/s1746/2023-12-01_20:21.jpg">
+			 <p>2023-12-01 19:21 s:541kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_3" title="2023-12-01 19:01" onclick="set_img(53)" src="/dynamic/camsave/s1746/2023-12-01_20:01.jpg">
+			 <p>2023-12-01 19:01 s:520kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_4" title="2023-12-01 18:42" onclick="set_img(52)" src="/dynamic/camsave/s1746/2023-12-01_19:42.jpg">
+			 <p>2023-12-01 18:42 s:539kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_5" title="2023-12-01 18:41" onclick="set_img(51)" src="/dynamic/camsave/s1746/2023-12-01_19:41.jpg">
+			 <p>2023-12-01 18:41 s:535kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_6" title="2023-12-01 18:21" onclick="set_img(50)" src="/dynamic/camsave/s1746/2023-12-01_19:21.jpg">
+			 <p>2023-12-01 18:21 s:525kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_7" title="2023-12-01 18:02" onclick="set_img(49)" src="/dynamic/camsave/s1746/2023-12-01_19:02.jpg">
+			 <p>2023-12-01 18:02 s:524kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_8" title="2023-12-01 17:42" onclick="set_img(48)" src="/dynamic/camsave/s1746/2023-12-01_18:42.jpg">
+			 <p>2023-12-01 17:42 s:538kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_9" title="2023-12-01 17:41" onclick="set_img(47)" src="/dynamic/camsave/s1746/2023-12-01_18:41.jpg">
+			 <p>2023-12-01 17:41 s:559kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_10" title="2023-12-01 17:21" onclick="set_img(46)" src="/dynamic/camsave/s1746/2023-12-01_18:21.jpg">
+			 <p>2023-12-01 17:21 s:549kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_11" title="2023-12-01 17:02" onclick="set_img(45)" src="/dynamic/camsave/s1746/2023-12-01_18:02.jpg">
+			 <p>2023-12-01 17:02 s:575kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_12" title="2023-12-01 17:01" onclick="set_img(44)" src="/dynamic/camsave/s1746/2023-12-01_18:01.jpg">
+			 <p>2023-12-01 17:01 s:441kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_13" title="2023-12-01 16:47" onclick="set_img(43)" src="/dynamic/camsave/s1746/2023-12-01_17:47.jpg">
+			 <p>2023-12-01 16:47 s:526kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_14" title="2023-12-01 16:46" onclick="set_img(42)" src="/dynamic/camsave/s1746/2023-12-01_17:46.jpg">
+			 <p>2023-12-01 16:46 s:704kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_15" title="2023-12-01 16:45" onclick="set_img(41)" src="/dynamic/camsave/s1746/2023-12-01_17:45.jpg">
+			 <p>2023-12-01 16:45 s:327kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_16" title="2023-12-01 16:44" onclick="set_img(40)" src="/dynamic/camsave/s1746/2023-12-01_17:44.jpg">
+			 <p>2023-12-01 16:44 s:477kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_17" title="2023-12-01 16:43" onclick="set_img(39)" src="/dynamic/camsave/s1746/2023-12-01_17:43.jpg">
+			 <p>2023-12-01 16:43 s:342kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_18" title="2023-12-01 16:42" onclick="set_img(38)" src="/dynamic/camsave/s1746/2023-12-01_17:42.jpg">
+			 <p>2023-12-01 16:42 s:328kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_19" title="2023-12-01 15:01" onclick="set_img(37)" src="/dynamic/camsave/s1746/2023-12-01_16:01.jpg">
+			 <p>2023-12-01 15:01 s:337kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_20" title="2023-12-01 14:41" onclick="set_img(36)" src="/dynamic/camsave/s1746/2023-12-01_15:41.jpg">
+			 <p>2023-12-01 14:41 s:328kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_21" title="2023-12-01 14:21" onclick="set_img(35)" src="/dynamic/camsave/s1746/2023-12-01_15:21.jpg">
+			 <p>2023-12-01 14:21 s:353kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_22" title="2023-12-01 14:01" onclick="set_img(34)" src="/dynamic/camsave/s1746/2023-12-01_15:01.jpg">
+			 <p>2023-12-01 14:01 s:197kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_23" title="2023-12-01 13:41" onclick="set_img(33)" src="/dynamic/camsave/s1746/2023-12-01_14:41.jpg">
+			 <p>2023-12-01 13:41 s:351kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_24" title="2023-12-01 13:21" onclick="set_img(32)" src="/dynamic/camsave/s1746/2023-12-01_14:21.jpg">
+			 <p>2023-12-01 13:21 s:376kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_25" title="2023-12-01 13:01" onclick="set_img(31)" src="/dynamic/camsave/s1746/2023-12-01_14:01.jpg">
+			 <p>2023-12-01 13:01 s:299kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_26" title="2023-12-01 12:42" onclick="set_img(30)" src="/dynamic/camsave/s1746/2023-12-01_13:42.jpg">
+			 <p>2023-12-01 12:42 s:189kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_27" title="2023-12-01 12:41" onclick="set_img(29)" src="/dynamic/camsave/s1746/2023-12-01_13:41.jpg">
+			 <p>2023-12-01 12:41 s:310kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_28" title="2023-12-01 12:01" onclick="set_img(28)" src="/dynamic/camsave/s1746/2023-12-01_13:01.jpg">
+			 <p>2023-12-01 12:01 s:200kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_29" title="2023-12-01 11:41" onclick="set_img(27)" src="/dynamic/camsave/s1746/2023-12-01_12:41.jpg">
+			 <p>2023-12-01 11:41 s:182kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_30" title="2023-12-01 11:21" onclick="set_img(26)" src="/dynamic/camsave/s1746/2023-12-01_12:21.jpg">
+			 <p>2023-12-01 11:21 s:189kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_31" title="2023-12-01 11:01" onclick="set_img(25)" src="/dynamic/camsave/s1746/2023-12-01_12:01.jpg">
+			 <p>2023-12-01 11:01 s:272kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_32" title="2023-12-01 10:41" onclick="set_img(24)" src="/dynamic/camsave/s1746/2023-12-01_11:41.jpg">
+			 <p>2023-12-01 10:41 s:215kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_33" title="2023-12-01 10:21" onclick="set_img(23)" src="/dynamic/camsave/s1746/2023-12-01_11:21.jpg">
+			 <p>2023-12-01 10:21 s:195kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_34" title="2023-12-01 10:01" onclick="set_img(22)" src="/dynamic/camsave/s1746/2023-12-01_11:01.jpg">
+			 <p>2023-12-01 10:01 s:219kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_35" title="2023-12-01 09:41" onclick="set_img(21)" src="/dynamic/camsave/s1746/2023-12-01_10:41.jpg">
+			 <p>2023-12-01 09:41 s:272kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_36" title="2023-12-01 09:21" onclick="set_img(20)" src="/dynamic/camsave/s1746/2023-12-01_10:21.jpg">
+			 <p>2023-12-01 09:21 s:290kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_37" title="2023-12-01 09:01" onclick="set_img(19)" src="/dynamic/camsave/s1746/2023-12-01_10:01.jpg">
+			 <p>2023-12-01 09:01 s:462kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_38" title="2023-12-01 08:41" onclick="set_img(18)" src="/dynamic/camsave/s1746/2023-12-01_09:41.jpg">
+			 <p>2023-12-01 08:41 s:439kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_39" title="2023-12-01 08:21" onclick="set_img(17)" src="/dynamic/camsave/s1746/2023-12-01_09:21.jpg">
+			 <p>2023-12-01 08:21 s:520kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_40" title="2023-12-01 08:01" onclick="set_img(16)" src="/dynamic/camsave/s1746/2023-12-01_09:01.jpg">
+			 <p>2023-12-01 08:01 s:190kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_41" title="2023-11-30 19:42" onclick="set_img(15)" src="/dynamic/camsave/s1746/2023-11-30_20:42.jpg">
+			 <p>2023-11-30 19:42 s:555kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_42" title="2023-11-30 19:41" onclick="set_img(14)" src="/dynamic/camsave/s1746/2023-11-30_20:41.jpg">
+			 <p>2023-11-30 19:41 s:555kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_43" title="2023-11-30 19:21" onclick="set_img(13)" src="/dynamic/camsave/s1746/2023-11-30_20:21.jpg">
+			 <p>2023-11-30 19:21 s:544kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_44" title="2023-11-30 19:02" onclick="set_img(12)" src="/dynamic/camsave/s1746/2023-11-30_20:02.jpg">
+			 <p>2023-11-30 19:02 s:559kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_45" title="2023-11-30 19:01" onclick="set_img(11)" src="/dynamic/camsave/s1746/2023-11-30_20:01.jpg">
+			 <p>2023-11-30 19:01 s:551kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_46" title="2023-11-30 18:41" onclick="set_img(10)" src="/dynamic/camsave/s1746/2023-11-30_19:41.jpg">
+			 <p>2023-11-30 18:41 s:536kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_47" title="2023-11-30 18:21" onclick="set_img(9)" src="/dynamic/camsave/s1746/2023-11-30_19:21.jpg">
+			 <p>2023-11-30 18:21 s:535kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_48" title="2023-11-30 18:02" onclick="set_img(8)" src="/dynamic/camsave/s1746/2023-11-30_19:02.jpg">
+			 <p>2023-11-30 18:02 s:542kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_49" title="2023-11-30 18:01" onclick="set_img(7)" src="/dynamic/camsave/s1746/2023-11-30_19:01.jpg">
+			 <p>2023-11-30 18:01 s:545kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_50" title="2023-11-30 17:41" onclick="set_img(6)" src="/dynamic/camsave/s1746/2023-11-30_18:41.jpg">
+			 <p>2023-11-30 17:41 s:523kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_51" title="2023-11-30 17:21" onclick="set_img(5)" src="/dynamic/camsave/s1746/2023-11-30_18:21.jpg">
+			 <p>2023-11-30 17:21 s:544kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_52" title="2023-11-30 17:02" onclick="set_img(4)" src="/dynamic/camsave/s1746/2023-11-30_18:02.jpg">
+			 <p>2023-11-30 17:02 s:578kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_53" title="2023-11-30 17:01" onclick="set_img(3)" src="/dynamic/camsave/s1746/2023-11-30_18:01.jpg">
+			 <p>2023-11-30 17:01 s:538kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_54" title="2023-11-30 16:42" onclick="set_img(2)" src="/dynamic/camsave/s1746/2023-11-30_17:42.jpg">
+			 <p>2023-11-30 16:42 s:563kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_55" title="2023-11-30 16:21" onclick="set_img(1)" src="/dynamic/camsave/s1746/2023-11-30_17:21.jpg">
+			 <p>2023-11-30 16:21 s:154kB1</a></p>
+			</div>
+				<div class="clear"></div>
+	</div>
+</div>
+
+</div>
+</div>
+<div id="footer_line"> 
+	 <div id="footer_block" class="container">
+	    
+		<div class="small_footer">
+		  
+		  <center>
+			<a href="/en/" class="lang-button">EN</a>
+			<a  href="/de/" class="lang-button">DE</a> 
+			<a  href="/no/" class="lang-button">NO</a>
+			<a  href="/hu/" class="lang-button">HU</a>
+			<a  href="/fr/" class="lang-button">FR</a>
+			<a  href="/it/" class="lang-button">IT</a>
+			<a  href="/gr/" class="lang-button">GR</a>
+			<a  href="/tr/" class="lang-button">TR</a>
+			<a  href="/es/" class="lang-button">ES</a>
+			<a target="_blank" style="" href="http://www.facebook.com/holfuy"><img style="height:17px; margin:0 5px;" src="/image/icon/bf.png"></a>
+			
+			info@holfuy.hu			
+		   </center>	
+		</div>
+	
+		<div class="footer_div">
+			<div style="margin-bottom:10px;" class="footer_head">LANGUAGES</div>
+			<a href="/en/" class="lang-button">EN</a>
+			<a  href="/de/" class="lang-button">DE</a> 
+			<a  href="/no/" class="lang-button">NO</a>
+			<a  href="/hu/" class="lang-button">HU</a>
+			<a  href="/fr/" class="lang-button">FR</a>
+			<a  href="/it/" class="lang-button">IT</a>
+			<a  href="/gr/" class="lang-button">GR</a>
+			<a  href="/tr/" class="lang-button">TR</a>
+			<a  href="/es/" class="lang-button">ES</a>
+		  <br>
+		  <img onclick="window.location.href='/';" src="/image/logo/holfuy-logo-storke.png" style="  width:120px; margin-right:10px;margin-top:5px;">
+		</div>   
+		<div class="footer_div">
+		   <div class="footer_head">Join us</div>
+		   Order your Holfuy station today!<br><br><center>
+		   <a href="/en/shop/" style="text-decoration:none; box-shadow: 3px 3px 3px black;padding:5px 12px; border-radius:4px; width:120px; background:orange; color:black; font-weight:bold;">SHOP</a>
+		   </center>
+		</div>
+				<div class="footer_div">
+		   <div class="footer_head">Info</div>
+		   <a class="footer_link" href="/en/about/">About Holfuy</a><br>
+		   <a class="footer_link" href="/en/support/">Support</a><br>
+		   <a class="footer_link" href="/en/faq/">FAQ</a><br>
+		   <a class="footer_link" href="/en/about/">Warranty</a><br>
+		   <a class="footer_link " hidden href="/en/privacy-policy/">Terms of service</a><br>
+		</div>
+		<div class="footer_div" style="border:0px;">
+		
+			<div class="footer_head">Contact</div>
+			<i class="fa fa-envelope-o"></i>
+			info@holfuy.hu			
+			<hr>
+						<br>	
+		</div>
+		<div class="clear"></div>
+	</div> 
+</div>
+<div class="last-foot" >
+	<center><b> © 2012-2023 Holfuy Meteorology</b> 
+	<a  href="/en/privacy-policy/">-Privacy-</a>
+	<a  href="/en/terms/">Terms-</a></center>
+	
+</div>	
+	
+<div id="cookie_alert" style="position:fixed; z-index:1010; top:0px; color:white; width:100%; min-height: 250px; font-size:normal; background:rgba(0,0,0,0.85); vertical-align: middle;">
+  <div style="margin:50px; ">We use <span style="font-size:x-large; font-weight:bold; color:whitesmoke;">Cookies</span> which help us to improve our services. E.g. we store your preferred units (temperature, wind). If you accept their use please choose if you accept all or the required cookies only. You can find out more about cookies we use <a href="/en/privacy-policy/"> at this page</a>.
+  	<br>
+  	<div onclick="setCookie_acc('all');" style="display: inline-block; border-radius:15px; cursor:pointer; min-width:100px; background:gray; padding:5px 12px; margin-top: 30px; text-align: center;  font-weight:bold; color:white; font-size:large;">Accept all</div>
+  	<div onclick="setCookie_acc('required');" style="display: inline-block; border-radius:15px; cursor:pointer; min-width:100px; background:gray; padding:5px 12px; margin-top: 30px; margin-left:50px; text-align: center; color:white; font-size:large;">Required only</div>
+  </div>
+  <script>
+  	function setCookie_acc(mode){
+  		$.getJSON('/puget/cookie.php?mode='+mode, function(result,status){
+  		});
+  		document.getElementById('cookie_alert').style.display="none";
+  	}
+  </script>
+</div>
+	 
+
+</body>
+</html>   
