@@ -413,77 +413,12 @@ $("#stations_dd").change(stationChanged);
 	</div>
 	<hr>
 	<div id="avg_tables">
-	<style>
-.hour_table{
-	table-layout: fixed; 
-	padding:0px;
-	margin:0px;
-	font-size:smaller;
-	font-weight:bold;
-	border-spacing: 0px;
-	border: 1px solid #999999;
-	border-left: 0;
+		
 
-}
-td{
-	text-align: center;
-}
-.outer {
-	position:relative;
-	margin:2px 4px;
-	background:white;
-}
-.inner {
-	overflow-x:auto;
-	overflow-y:visible;
-	margin-left:80px;
-}
-.h_header{
-	position:absolute;
-	left:0px;
-	width:80px;
-	font-size:1em;
-	text-align:left;
-	border-bottom: 0px solid #DDDDDD;
-}
-                 
-.h_pt{
-	width:30px;
-	min-width:30px;
-	max-width:30px;
-	background-color:white;
-}  
-.time_highlight{
-	font-size:larger;
-	background-color:#444444;
-	color:white;	
-	font-weight:800%; 
-	padding:1px 3px;
-}      
-	.h_img{
-	width:20px;
-}                   
-.w_dir{
-     background : #CCCCCC;
-	 font-size:large;
-}
-
-</style>
-
-
-<div class="outer" style="font-size:smaller;">
-			 <div class="inner">	
-<table class="hour_table"><tr ><td class="h_header">Time</td>	
-  
-<td class="h_pt"><b class="time_highlight">21h</b></td><td class="h_pt">21:15</td><td class="h_pt">21:30</td><td class="h_pt">21:45</td><td class="h_pt"><b class="time_highlight">22h</b></td><td class="h_pt">22:15</td><td class="h_pt">22:30</td><td class="h_pt">22:45</td><td class="h_pt"><b class="time_highlight">23h</b></td><td class="h_pt">23:15</td><td class="h_pt">23:30</td><td class="h_pt">23:45</td><td class="h_pt"><b class="time_highlight">Sun</b></td><td class="h_pt">00:15</td><td class="h_pt">00:30</td><td class="h_pt">00:45</td><td class="h_pt"><b class="time_highlight">01h</b></td><td class="h_pt">01:15</td><td class="h_pt">01:30</td><td class="h_pt">01:45</td></tr><tr style="height:1.9em; font-size:larger;"><td class="h_header" style=" font-size:smaller; padding-top:5px;">Speed</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td class="h_header">Gust <span style="font-size: smaller;"> (mph)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr ><td class="h_header" style="padding-top:5px;">Direction</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td class="h_header">Direction<br><span style="font-size: smaller;">Deg.</span></td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td></tr><tr><td class="h_header">Humidity <span style="font-size: smaller;"> (%)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td class="h_header">Air . <span style="font-size: smaller;"> (°C)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>	</tr>
-</table>
+<div style="height:20px; margin:2px 4px; background: white; font-size: 1em;  border:1px solid black; font-weight: bold; padding:30px 50px;">
+:( ... No data from this time interval. 
 </div>
-</div>
-<script>
-	var inners=document.getElementsByClassName("inner");
-	for(var i=0; i<inners.length; i++)
-		inners[i].scrollLeft=1000;
-</script>
+
 	<div class="replay" style="width:auto; padding:0px; margin:0px 4px; cursor:pointer;" onclick="new function() { window.location.href = '/en/weather/1746'; }"><center>More weather data</center></div>
 	 
 	</div>
