@@ -218,7 +218,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 	</script>
 	<style>
 	#top-bg{
-		background-image:url('/image/head/mk_head.jpg');
+		background-image:url('/image/head/eg2.jpg');
 	}
 </style>
 </head>
@@ -372,18 +372,83 @@ $("#stations_dd").change(stationChanged);
 	<hr>
 		<table id="cam_data">
 		<tr><td>Last image: </td><td>2025-01-27 17:24 GMT</td></tr>
-		<tr><td>Ambient temp.:</td><td> 1.0 °C</td></tr>
+		<tr><td>Ambient temp.:</td><td> 0.3 °C</td></tr>
 		<tr><td>Mode: Night (OFF) </td><td>(Light: 0/1000)</td></tr>
 	</table>
 	</div>
 	<hr>
 	<div id="avg_tables">
-		
+	<style>
+.hour_table{
+	table-layout: fixed; 
+	padding:0px;
+	margin:0px;
+	font-size:smaller;
+	font-weight:bold;
+	border-spacing: 0px;
+	border: 1px solid #999999;
+	border-left: 0;
 
-<div style="height:20px; margin:2px 4px; background: white; font-size: 1em;  border:1px solid black; font-weight: bold; padding:30px 50px;">
-:( ... No data from this time interval. 
+}
+td{
+	text-align: center;
+}
+.outer {
+	position:relative;
+	margin:2px 4px;
+	background:white;
+}
+.inner {
+	overflow-x:auto;
+	overflow-y:visible;
+	margin-left:80px;
+}
+.h_header{
+	position:absolute;
+	left:0px;
+	width:80px;
+	font-size:1em;
+	text-align:left;
+	border-bottom: 0px solid #DDDDDD;
+}
+                 
+.h_pt{
+	width:30px;
+	min-width:30px;
+	max-width:30px;
+	background-color:white;
+}  
+.time_highlight{
+	font-size:larger;
+	background-color:#444444;
+	color:white;	
+	font-weight:800%; 
+	padding:1px 3px;
+}      
+	.h_img{
+	width:20px;
+}                   
+.w_dir{
+     background : #CCCCCC;
+	 font-size:large;
+}
+
+</style>
+
+
+<div class="outer" style="font-size:smaller;">
+			 <div class="inner">	
+<table class="hour_table"><tr ><td class="h_header">Time</td>	
+  
+<td class="h_pt"><b class="time_highlight">13h</b></td><td class="h_pt">13:15</td><td class="h_pt">13:30</td><td class="h_pt">13:45</td><td class="h_pt"><b class="time_highlight">14h</b></td><td class="h_pt">14:15</td><td class="h_pt">14:30</td><td class="h_pt">14:45</td><td class="h_pt"><b class="time_highlight">15h</b></td><td class="h_pt">15:15</td><td class="h_pt">15:30</td><td class="h_pt">15:45</td><td class="h_pt"><b class="time_highlight">16h</b></td><td class="h_pt">16:15</td><td class="h_pt">16:30</td><td class="h_pt">16:45</td><td class="h_pt"><b class="time_highlight">17h</b></td><td class="h_pt">17:15</td><td class="h_pt">17:30</td><td class="h_pt">17:45</td></tr><tr style="height:1.9em; font-size:larger;"><td class="h_header" style=" font-size:smaller; padding-top:5px;">Speed</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td style="background:#00ffff;">3.7</td><td style="background:#00ffcc;">5.6</td><td style="background:#00ff7f;">8.1</td></tr><tr><td class="h_header">Gust <span style="font-size: smaller;"> (mph)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#32ff00">13</td><td bgcolor="#00ff33">9.9</td><td bgcolor="#32ff00">13</td></tr><tr ><td class="h_header" style="padding-top:5px;">Direction</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-170"></i></td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-240"></i></td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-220"></i></td></tr><tr><td class="h_header">Direction<br><span style="font-size: smaller;">Deg.</span></td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>SSE<br>166°</td><td>SW<br>235°</td><td>SW<br>217°</td></tr><tr><td class="h_header">Humidity <span style="font-size: smaller;"> (%)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#8080ff">100.0</td><td bgcolor="#8080ff">100.0</td><td bgcolor="#8080ff">100.0</td></tr><tr><td class="h_header">Air . <span style="font-size: smaller;"> (°C)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#ffffed">0.8</td><td bgcolor="#fffff7">0.3</td><td bgcolor="#fffff5">0.4</td>	</tr>
+</table>
 </div>
-
+</div>
+<script>
+	var inners=document.getElementsByClassName("inner");
+	for(var i=0; i<inners.length; i++)
+		inners[i].scrollLeft=1000;
+</script>
 	<div class="replay" style="width:auto; padding:0px; margin:0px 4px; cursor:pointer;" onclick="new function() { window.location.href = '/en/weather/1746'; }"><center>More weather data</center></div>
 	 
 	</div>
