@@ -136,8 +136,8 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 		var new_cam_IntervalId;
 		var act_img=0;
 		var stattr = {"id":"1746","short_name":"#1746","country":"GB","o_s":0,"o_e":0,"o2_s":0,"o2_e":0,"w_s":0,"w_e":0,"w2_s":0,"w2_e":0,"style":"U"};		
-		var photos = ["2025-01-27_18:24.jpg"];		var last_img=0;
-		var image_cnt=1;
+		var photos = ["2025-01-27_18:24.jpg","2025-01-28_14:41.jpg","2025-01-28_14:42.jpg","2025-01-28_14:43.jpg","2025-01-28_14:44.jpg","2025-01-28_14:45.jpg"];		var last_img=0;
+		var image_cnt=6;
 		$(document).ready(function(){  
 			//new_cam_IntervalId=setInterval(new_img,250);
 			//movie_running=1;
@@ -178,7 +178,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 		    if(!movie_running){
 			    $(".img_play").show();
 				act_img=0;
-				//last_img=1;
+				//last_img=6;
 				new_cam_IntervalId=setInterval(new_img,250);
 				movie_running=1;
 				$("#play_button i").addClass("fa-stop");
@@ -198,7 +198,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 			  $("#act_img_info").html($("#img_small_"+(image_cnt-act_img)).attr('title'));
 			  last_img=act_img;
 			  act_img+=1;
-			  if (act_img>1) {
+			  if (act_img>6) {
 					act_img=0; 
 					run_cnt--; 
 					if(run_cnt==0){
@@ -206,7 +206,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 					   movie_running=0;
 					   $("#play_button i").addClass("fa-play");
 					$("#play_button i").removeClass("fa-stop");
-					   act_img=1;
+					   act_img=6;
 					   }
 					}
 			  }
@@ -218,7 +218,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 	</script>
 	<style>
 	#top-bg{
-		background-image:url('/image/head/bgno.jpg');
+		background-image:url('/image/head/eg2.jpg');
 	}
 </style>
 </head>
@@ -359,7 +359,12 @@ $("#stations_dd").change(stationChanged);
 <div class="home_title"><i class="fa fa-camera"></i> Holfuy Webcamera: <b>CIC Hut Ben Nevis</b></div>
 
     <div style="background:#333333;" > 
-	 	 <img class="img_fix" src="/dynamic/camsave/s1746/2025-01-27_18:24.jpg">
+	 	 <img class="img_fix" src="/dynamic/camsave/s1746/2025-01-28_14:45.jpg">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-01-28_14:45.jpg" id="camimg6">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-01-28_14:44.jpg" id="camimg5">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-01-28_14:43.jpg" id="camimg4">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-01-28_14:42.jpg" id="camimg3">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-01-28_14:41.jpg" id="camimg2">
 	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-01-27_18:24.jpg" id="camimg1">
 	 	<div id="info_box">
 	<div id="info_texts">
@@ -371,8 +376,8 @@ $("#stations_dd").change(stationChanged);
 	<span id="act_img_info" style="font-size:smaller;"></span>
 	<hr>
 		<table id="cam_data">
-		<tr><td>Last image: </td><td>2025-01-27 17:24 GMT</td></tr>
-		<tr><td>Ambient temp.:</td><td> 1.3 °C</td></tr>
+		<tr><td>Last image: </td><td>2025-01-28 13:45 GMT</td></tr>
+		<tr><td>Ambient temp.:</td><td> 1.2 °C</td></tr>
 		<tr><td>Mode: Night (OFF) </td><td>(Light: 0/1000)</td></tr>
 	</table>
 	</div>
@@ -440,7 +445,7 @@ td{
 			 <div class="inner">	
 <table class="hour_table"><tr ><td class="h_header">Time</td>	
   
-<td class="h_pt">08:45</td><td class="h_pt"><b class="time_highlight">09h</b></td><td class="h_pt">09:15</td><td class="h_pt">09:30</td><td class="h_pt">09:45</td><td class="h_pt"><b class="time_highlight">10h</b></td><td class="h_pt">10:15</td><td class="h_pt">10:30</td><td class="h_pt">10:45</td><td class="h_pt"><b class="time_highlight">11h</b></td><td class="h_pt">11:15</td><td class="h_pt">11:30</td><td class="h_pt">11:45</td><td class="h_pt"><b class="time_highlight">12h</b></td><td class="h_pt">12:15</td><td class="h_pt">12:30</td><td class="h_pt">12:45</td><td class="h_pt"><b class="time_highlight">13h</b></td><td class="h_pt">13:15</td><td class="h_pt">13:30</td></tr><tr style="height:1.9em; font-size:larger;"><td class="h_header" style=" font-size:smaller; padding-top:5px;">Speed</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td class="h_header">Gust <span style="font-size: smaller;"> (mph)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr ><td class="h_header" style="padding-top:5px;">Direction</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td class="h_header">Direction<br><span style="font-size: smaller;">Deg.</span></td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td></tr><tr><td class="h_header">Humidity <span style="font-size: smaller;"> (%)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td></tr><tr><td class="h_header">Air . <span style="font-size: smaller;"> (°C)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td>	</tr>
+<td class="h_pt"><b class="time_highlight">09h</b></td><td class="h_pt">09:15</td><td class="h_pt">09:30</td><td class="h_pt">09:45</td><td class="h_pt"><b class="time_highlight">10h</b></td><td class="h_pt">10:15</td><td class="h_pt">10:30</td><td class="h_pt">10:45</td><td class="h_pt"><b class="time_highlight">11h</b></td><td class="h_pt">11:15</td><td class="h_pt">11:30</td><td class="h_pt">11:45</td><td class="h_pt"><b class="time_highlight">12h</b></td><td class="h_pt">12:15</td><td class="h_pt">12:30</td><td class="h_pt">12:45</td><td class="h_pt"><b class="time_highlight">13h</b></td><td class="h_pt">13:15</td><td class="h_pt">13:30</td><td class="h_pt">13:45</td></tr><tr style="height:1.9em; font-size:larger;"><td class="h_header" style=" font-size:smaller; padding-top:5px;">Speed</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td style="background:#00ff7f;">8.1</td><td style="background:#00ff7f;">8.1</td><td style="background:#00ff33;">9.9</td></tr><tr><td class="h_header">Gust <span style="font-size: smaller;"> (mph)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#feff00">19.2</td><td bgcolor="#b1ff00">16.7</td><td bgcolor="#b1ff00">17.4</td></tr><tr ><td class="h_header" style="padding-top:5px;">Direction</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-40"></i></td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-30"></i></td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-20"></i></td></tr><tr><td class="h_header">Direction<br><span style="font-size: smaller;">Deg.</span></td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>NE<br>40°</td><td>NNE<br>30°</td><td>NNE<br>21°</td></tr><tr><td class="h_header">Humidity <span style="font-size: smaller;"> (%)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#8080ff">100.0</td><td bgcolor="#8080ff">100.0</td><td bgcolor="#8080ff">100.0</td></tr><tr><td class="h_header">Air . <span style="font-size: smaller;"> (°C)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#ffffeb">0.9</td><td bgcolor="#ffffe9">1.0</td><td bgcolor="#ffffe5">1.2</td>	</tr>
 </table>
 </div>
 </div>
@@ -462,7 +467,27 @@ td{
 	</div>
 	<div id="small_images">
 					<div class="block_small">
-			 <img class="img_small" id="img_small_0" title="2025-01-27 17:24" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-01-27_18:24.jpg">
+			 <img class="img_small" id="img_small_0" title="2025-01-28 13:45" onclick="set_img(6)" src="/dynamic/camsave/s1746/2025-01-28_14:45.jpg">
+			 <p>2025-01-28 13:45 s:304kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_1" title="2025-01-28 13:44" onclick="set_img(5)" src="/dynamic/camsave/s1746/2025-01-28_14:44.jpg">
+			 <p>2025-01-28 13:44 s:199kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_2" title="2025-01-28 13:43" onclick="set_img(4)" src="/dynamic/camsave/s1746/2025-01-28_14:43.jpg">
+			 <p>2025-01-28 13:43 s:177kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_3" title="2025-01-28 13:42" onclick="set_img(3)" src="/dynamic/camsave/s1746/2025-01-28_14:42.jpg">
+			 <p>2025-01-28 13:42 s:262kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_4" title="2025-01-28 13:41" onclick="set_img(2)" src="/dynamic/camsave/s1746/2025-01-28_14:41.jpg">
+			 <p>2025-01-28 13:41 s:314kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_5" title="2025-01-27 17:24" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-01-27_18:24.jpg">
 			 <p>2025-01-27 17:24 s:46kB1</a></p>
 			</div>
 				<div class="clear"></div>
