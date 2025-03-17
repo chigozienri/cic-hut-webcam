@@ -136,8 +136,8 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 		var new_cam_IntervalId;
 		var act_img=0;
 		var stattr = {"id":"1746","short_name":"#1746","country":"GB","o_s":0,"o_e":0,"o2_s":0,"o2_e":0,"w_s":0,"w_e":0,"w2_s":0,"w2_e":0,"style":"U"};		
-		var photos = ["2025-03-15_16:42.jpg","2025-03-15_17:02.jpg","2025-03-15_17:22.jpg","2025-03-15_17:42.jpg","2025-03-15_18:02.jpg","2025-03-15_18:22.jpg","2025-03-15_18:42.jpg","2025-03-15_19:02.jpg","2025-03-15_19:22.jpg","2025-03-15_19:42.jpg","2025-03-16_09:02.jpg","2025-03-16_09:03.jpg","2025-03-16_09:04.jpg","2025-03-16_09:22.jpg","2025-03-16_09:23.jpg","2025-03-16_09:42.jpg","2025-03-16_09:43.jpg","2025-03-16_09:44.jpg","2025-03-16_10:02.jpg","2025-03-16_10:03.jpg","2025-03-16_10:22.jpg","2025-03-16_10:23.jpg","2025-03-16_10:42.jpg","2025-03-16_11:02.jpg","2025-03-16_11:22.jpg","2025-03-16_11:42.jpg","2025-03-16_12:02.jpg","2025-03-16_12:22.jpg","2025-03-16_12:42.jpg","2025-03-16_13:02.jpg","2025-03-16_13:22.jpg","2025-03-16_13:42.jpg","2025-03-16_14:02.jpg","2025-03-16_14:22.jpg","2025-03-16_14:42.jpg","2025-03-16_15:02.jpg","2025-03-16_15:22.jpg"];		var last_img=0;
-		var image_cnt=37;
+		var photos = ["2025-03-15_17:42.jpg","2025-03-15_18:02.jpg","2025-03-15_18:22.jpg","2025-03-15_18:42.jpg","2025-03-15_19:02.jpg","2025-03-15_19:22.jpg","2025-03-15_19:42.jpg","2025-03-16_09:02.jpg","2025-03-16_09:03.jpg","2025-03-16_09:04.jpg","2025-03-16_09:22.jpg","2025-03-16_09:23.jpg","2025-03-16_09:42.jpg","2025-03-16_09:43.jpg","2025-03-16_09:44.jpg","2025-03-16_10:02.jpg","2025-03-16_10:03.jpg","2025-03-16_10:22.jpg","2025-03-16_10:23.jpg","2025-03-16_10:42.jpg","2025-03-16_11:02.jpg","2025-03-16_11:22.jpg","2025-03-16_11:42.jpg","2025-03-16_12:02.jpg","2025-03-16_12:22.jpg","2025-03-16_12:42.jpg","2025-03-16_13:02.jpg","2025-03-16_13:22.jpg","2025-03-16_13:42.jpg","2025-03-16_14:02.jpg","2025-03-16_14:22.jpg","2025-03-16_14:42.jpg","2025-03-16_15:02.jpg","2025-03-16_15:22.jpg"];		var last_img=0;
+		var image_cnt=34;
 		$(document).ready(function(){  
 			//new_cam_IntervalId=setInterval(new_img,250);
 			//movie_running=1;
@@ -178,7 +178,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 		    if(!movie_running){
 			    $(".img_play").show();
 				act_img=0;
-				//last_img=37;
+				//last_img=34;
 				new_cam_IntervalId=setInterval(new_img,250);
 				movie_running=1;
 				$("#play_button i").addClass("fa-stop");
@@ -198,7 +198,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 			  $("#act_img_info").html($("#img_small_"+(image_cnt-act_img)).attr('title'));
 			  last_img=act_img;
 			  act_img+=1;
-			  if (act_img>37) {
+			  if (act_img>34) {
 					act_img=0; 
 					run_cnt--; 
 					if(run_cnt==0){
@@ -206,7 +206,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 					   movie_running=0;
 					   $("#play_button i").addClass("fa-play");
 					$("#play_button i").removeClass("fa-stop");
-					   act_img=37;
+					   act_img=34;
 					   }
 					}
 			  }
@@ -360,43 +360,40 @@ $("#stations_dd").change(stationChanged);
 
     <div style="background:#333333;" > 
 	 	 <img class="img_fix" src="/dynamic/camsave/s1746/2025-03-16_15:22.jpg">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_15:22.jpg" id="camimg37">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_15:02.jpg" id="camimg36">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_14:42.jpg" id="camimg35">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_14:22.jpg" id="camimg34">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_14:02.jpg" id="camimg33">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_13:42.jpg" id="camimg32">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_13:22.jpg" id="camimg31">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_13:02.jpg" id="camimg30">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_12:42.jpg" id="camimg29">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_12:22.jpg" id="camimg28">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_12:02.jpg" id="camimg27">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_11:42.jpg" id="camimg26">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_11:22.jpg" id="camimg25">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_11:02.jpg" id="camimg24">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:42.jpg" id="camimg23">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:23.jpg" id="camimg22">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:22.jpg" id="camimg21">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:03.jpg" id="camimg20">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:02.jpg" id="camimg19">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:44.jpg" id="camimg18">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:43.jpg" id="camimg17">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:42.jpg" id="camimg16">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:23.jpg" id="camimg15">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:22.jpg" id="camimg14">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:04.jpg" id="camimg13">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:03.jpg" id="camimg12">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:02.jpg" id="camimg11">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_19:42.jpg" id="camimg10">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_19:22.jpg" id="camimg9">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_19:02.jpg" id="camimg8">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_18:42.jpg" id="camimg7">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_18:22.jpg" id="camimg6">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_18:02.jpg" id="camimg5">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_17:42.jpg" id="camimg4">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_17:22.jpg" id="camimg3">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_17:02.jpg" id="camimg2">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_16:42.jpg" id="camimg1">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_15:22.jpg" id="camimg34">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_15:02.jpg" id="camimg33">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_14:42.jpg" id="camimg32">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_14:22.jpg" id="camimg31">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_14:02.jpg" id="camimg30">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_13:42.jpg" id="camimg29">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_13:22.jpg" id="camimg28">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_13:02.jpg" id="camimg27">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_12:42.jpg" id="camimg26">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_12:22.jpg" id="camimg25">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_12:02.jpg" id="camimg24">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_11:42.jpg" id="camimg23">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_11:22.jpg" id="camimg22">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_11:02.jpg" id="camimg21">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:42.jpg" id="camimg20">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:23.jpg" id="camimg19">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:22.jpg" id="camimg18">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:03.jpg" id="camimg17">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_10:02.jpg" id="camimg16">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:44.jpg" id="camimg15">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:43.jpg" id="camimg14">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:42.jpg" id="camimg13">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:23.jpg" id="camimg12">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:22.jpg" id="camimg11">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:04.jpg" id="camimg10">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:03.jpg" id="camimg9">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-16_09:02.jpg" id="camimg8">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_19:42.jpg" id="camimg7">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_19:22.jpg" id="camimg6">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_19:02.jpg" id="camimg5">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_18:42.jpg" id="camimg4">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_18:22.jpg" id="camimg3">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_18:02.jpg" id="camimg2">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-03-15_17:42.jpg" id="camimg1">
 	 	<div id="info_box">
 	<div id="info_texts">
 	<span class="replay" id="play_button" onclick="rePlay();"><i class="fa fa-play"></i></span>
@@ -433,152 +430,140 @@ $("#stations_dd").change(stationChanged);
 	</div>
 	<div id="small_images">
 					<div class="block_small">
-			 <img class="img_small" id="img_small_0" title="2025-03-16 14:22" onclick="set_img(37)" src="/dynamic/camsave/s1746/2025-03-16_15:22.jpg">
+			 <img class="img_small" id="img_small_0" title="2025-03-16 14:22" onclick="set_img(34)" src="/dynamic/camsave/s1746/2025-03-16_15:22.jpg">
 			 <p>2025-03-16 14:22 s:529kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_1" title="2025-03-16 14:02" onclick="set_img(36)" src="/dynamic/camsave/s1746/2025-03-16_15:02.jpg">
+			 <img class="img_small" id="img_small_1" title="2025-03-16 14:02" onclick="set_img(33)" src="/dynamic/camsave/s1746/2025-03-16_15:02.jpg">
 			 <p>2025-03-16 14:02 s:548kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_2" title="2025-03-16 13:42" onclick="set_img(35)" src="/dynamic/camsave/s1746/2025-03-16_14:42.jpg">
+			 <img class="img_small" id="img_small_2" title="2025-03-16 13:42" onclick="set_img(32)" src="/dynamic/camsave/s1746/2025-03-16_14:42.jpg">
 			 <p>2025-03-16 13:42 s:660kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_3" title="2025-03-16 13:22" onclick="set_img(34)" src="/dynamic/camsave/s1746/2025-03-16_14:22.jpg">
+			 <img class="img_small" id="img_small_3" title="2025-03-16 13:22" onclick="set_img(31)" src="/dynamic/camsave/s1746/2025-03-16_14:22.jpg">
 			 <p>2025-03-16 13:22 s:448kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_4" title="2025-03-16 13:02" onclick="set_img(33)" src="/dynamic/camsave/s1746/2025-03-16_14:02.jpg">
+			 <img class="img_small" id="img_small_4" title="2025-03-16 13:02" onclick="set_img(30)" src="/dynamic/camsave/s1746/2025-03-16_14:02.jpg">
 			 <p>2025-03-16 13:02 s:622kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_5" title="2025-03-16 12:42" onclick="set_img(32)" src="/dynamic/camsave/s1746/2025-03-16_13:42.jpg">
+			 <img class="img_small" id="img_small_5" title="2025-03-16 12:42" onclick="set_img(29)" src="/dynamic/camsave/s1746/2025-03-16_13:42.jpg">
 			 <p>2025-03-16 12:42 s:601kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_6" title="2025-03-16 12:22" onclick="set_img(31)" src="/dynamic/camsave/s1746/2025-03-16_13:22.jpg">
+			 <img class="img_small" id="img_small_6" title="2025-03-16 12:22" onclick="set_img(28)" src="/dynamic/camsave/s1746/2025-03-16_13:22.jpg">
 			 <p>2025-03-16 12:22 s:647kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_7" title="2025-03-16 12:02" onclick="set_img(30)" src="/dynamic/camsave/s1746/2025-03-16_13:02.jpg">
+			 <img class="img_small" id="img_small_7" title="2025-03-16 12:02" onclick="set_img(27)" src="/dynamic/camsave/s1746/2025-03-16_13:02.jpg">
 			 <p>2025-03-16 12:02 s:640kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_8" title="2025-03-16 11:42" onclick="set_img(29)" src="/dynamic/camsave/s1746/2025-03-16_12:42.jpg">
+			 <img class="img_small" id="img_small_8" title="2025-03-16 11:42" onclick="set_img(26)" src="/dynamic/camsave/s1746/2025-03-16_12:42.jpg">
 			 <p>2025-03-16 11:42 s:634kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_9" title="2025-03-16 11:22" onclick="set_img(28)" src="/dynamic/camsave/s1746/2025-03-16_12:22.jpg">
+			 <img class="img_small" id="img_small_9" title="2025-03-16 11:22" onclick="set_img(25)" src="/dynamic/camsave/s1746/2025-03-16_12:22.jpg">
 			 <p>2025-03-16 11:22 s:425kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_10" title="2025-03-16 11:02" onclick="set_img(27)" src="/dynamic/camsave/s1746/2025-03-16_12:02.jpg">
+			 <img class="img_small" id="img_small_10" title="2025-03-16 11:02" onclick="set_img(24)" src="/dynamic/camsave/s1746/2025-03-16_12:02.jpg">
 			 <p>2025-03-16 11:02 s:536kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_11" title="2025-03-16 10:42" onclick="set_img(26)" src="/dynamic/camsave/s1746/2025-03-16_11:42.jpg">
+			 <img class="img_small" id="img_small_11" title="2025-03-16 10:42" onclick="set_img(23)" src="/dynamic/camsave/s1746/2025-03-16_11:42.jpg">
 			 <p>2025-03-16 10:42 s:549kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_12" title="2025-03-16 10:22" onclick="set_img(25)" src="/dynamic/camsave/s1746/2025-03-16_11:22.jpg">
+			 <img class="img_small" id="img_small_12" title="2025-03-16 10:22" onclick="set_img(22)" src="/dynamic/camsave/s1746/2025-03-16_11:22.jpg">
 			 <p>2025-03-16 10:22 s:679kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_13" title="2025-03-16 10:02" onclick="set_img(24)" src="/dynamic/camsave/s1746/2025-03-16_11:02.jpg">
+			 <img class="img_small" id="img_small_13" title="2025-03-16 10:02" onclick="set_img(21)" src="/dynamic/camsave/s1746/2025-03-16_11:02.jpg">
 			 <p>2025-03-16 10:02 s:709kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_14" title="2025-03-16 09:42" onclick="set_img(23)" src="/dynamic/camsave/s1746/2025-03-16_10:42.jpg">
+			 <img class="img_small" id="img_small_14" title="2025-03-16 09:42" onclick="set_img(20)" src="/dynamic/camsave/s1746/2025-03-16_10:42.jpg">
 			 <p>2025-03-16 09:42 s:662kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_15" title="2025-03-16 09:23" onclick="set_img(22)" src="/dynamic/camsave/s1746/2025-03-16_10:23.jpg">
+			 <img class="img_small" id="img_small_15" title="2025-03-16 09:23" onclick="set_img(19)" src="/dynamic/camsave/s1746/2025-03-16_10:23.jpg">
 			 <p>2025-03-16 09:23 s:244kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_16" title="2025-03-16 09:22" onclick="set_img(21)" src="/dynamic/camsave/s1746/2025-03-16_10:22.jpg">
+			 <img class="img_small" id="img_small_16" title="2025-03-16 09:22" onclick="set_img(18)" src="/dynamic/camsave/s1746/2025-03-16_10:22.jpg">
 			 <p>2025-03-16 09:22 s:274kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_17" title="2025-03-16 09:03" onclick="set_img(20)" src="/dynamic/camsave/s1746/2025-03-16_10:03.jpg">
+			 <img class="img_small" id="img_small_17" title="2025-03-16 09:03" onclick="set_img(17)" src="/dynamic/camsave/s1746/2025-03-16_10:03.jpg">
 			 <p>2025-03-16 09:03 s:343kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_18" title="2025-03-16 09:02" onclick="set_img(19)" src="/dynamic/camsave/s1746/2025-03-16_10:02.jpg">
+			 <img class="img_small" id="img_small_18" title="2025-03-16 09:02" onclick="set_img(16)" src="/dynamic/camsave/s1746/2025-03-16_10:02.jpg">
 			 <p>2025-03-16 09:02 s:343kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_19" title="2025-03-16 08:44" onclick="set_img(18)" src="/dynamic/camsave/s1746/2025-03-16_09:44.jpg">
+			 <img class="img_small" id="img_small_19" title="2025-03-16 08:44" onclick="set_img(15)" src="/dynamic/camsave/s1746/2025-03-16_09:44.jpg">
 			 <p>2025-03-16 08:44 s:343kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_20" title="2025-03-16 08:43" onclick="set_img(17)" src="/dynamic/camsave/s1746/2025-03-16_09:43.jpg">
+			 <img class="img_small" id="img_small_20" title="2025-03-16 08:43" onclick="set_img(14)" src="/dynamic/camsave/s1746/2025-03-16_09:43.jpg">
 			 <p>2025-03-16 08:43 s:373kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_21" title="2025-03-16 08:42" onclick="set_img(16)" src="/dynamic/camsave/s1746/2025-03-16_09:42.jpg">
+			 <img class="img_small" id="img_small_21" title="2025-03-16 08:42" onclick="set_img(13)" src="/dynamic/camsave/s1746/2025-03-16_09:42.jpg">
 			 <p>2025-03-16 08:42 s:578kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_22" title="2025-03-16 08:23" onclick="set_img(15)" src="/dynamic/camsave/s1746/2025-03-16_09:23.jpg">
+			 <img class="img_small" id="img_small_22" title="2025-03-16 08:23" onclick="set_img(12)" src="/dynamic/camsave/s1746/2025-03-16_09:23.jpg">
 			 <p>2025-03-16 08:23 s:548kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_23" title="2025-03-16 08:22" onclick="set_img(14)" src="/dynamic/camsave/s1746/2025-03-16_09:22.jpg">
+			 <img class="img_small" id="img_small_23" title="2025-03-16 08:22" onclick="set_img(11)" src="/dynamic/camsave/s1746/2025-03-16_09:22.jpg">
 			 <p>2025-03-16 08:22 s:579kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_24" title="2025-03-16 08:04" onclick="set_img(13)" src="/dynamic/camsave/s1746/2025-03-16_09:04.jpg">
+			 <img class="img_small" id="img_small_24" title="2025-03-16 08:04" onclick="set_img(10)" src="/dynamic/camsave/s1746/2025-03-16_09:04.jpg">
 			 <p>2025-03-16 08:04 s:167kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_25" title="2025-03-16 08:03" onclick="set_img(12)" src="/dynamic/camsave/s1746/2025-03-16_09:03.jpg">
+			 <img class="img_small" id="img_small_25" title="2025-03-16 08:03" onclick="set_img(9)" src="/dynamic/camsave/s1746/2025-03-16_09:03.jpg">
 			 <p>2025-03-16 08:03 s:191kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_26" title="2025-03-16 08:02" onclick="set_img(11)" src="/dynamic/camsave/s1746/2025-03-16_09:02.jpg">
+			 <img class="img_small" id="img_small_26" title="2025-03-16 08:02" onclick="set_img(8)" src="/dynamic/camsave/s1746/2025-03-16_09:02.jpg">
 			 <p>2025-03-16 08:02 s:131kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_27" title="2025-03-15 18:42" onclick="set_img(10)" src="/dynamic/camsave/s1746/2025-03-15_19:42.jpg">
+			 <img class="img_small" id="img_small_27" title="2025-03-15 18:42" onclick="set_img(7)" src="/dynamic/camsave/s1746/2025-03-15_19:42.jpg">
 			 <p>2025-03-15 18:42 s:862kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_28" title="2025-03-15 18:22" onclick="set_img(9)" src="/dynamic/camsave/s1746/2025-03-15_19:22.jpg">
+			 <img class="img_small" id="img_small_28" title="2025-03-15 18:22" onclick="set_img(6)" src="/dynamic/camsave/s1746/2025-03-15_19:22.jpg">
 			 <p>2025-03-15 18:22 s:364kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_29" title="2025-03-15 18:02" onclick="set_img(8)" src="/dynamic/camsave/s1746/2025-03-15_19:02.jpg">
+			 <img class="img_small" id="img_small_29" title="2025-03-15 18:02" onclick="set_img(5)" src="/dynamic/camsave/s1746/2025-03-15_19:02.jpg">
 			 <p>2025-03-15 18:02 s:610kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_30" title="2025-03-15 17:42" onclick="set_img(7)" src="/dynamic/camsave/s1746/2025-03-15_18:42.jpg">
+			 <img class="img_small" id="img_small_30" title="2025-03-15 17:42" onclick="set_img(4)" src="/dynamic/camsave/s1746/2025-03-15_18:42.jpg">
 			 <p>2025-03-15 17:42 s:642kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_31" title="2025-03-15 17:22" onclick="set_img(6)" src="/dynamic/camsave/s1746/2025-03-15_18:22.jpg">
+			 <img class="img_small" id="img_small_31" title="2025-03-15 17:22" onclick="set_img(3)" src="/dynamic/camsave/s1746/2025-03-15_18:22.jpg">
 			 <p>2025-03-15 17:22 s:651kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_32" title="2025-03-15 17:02" onclick="set_img(5)" src="/dynamic/camsave/s1746/2025-03-15_18:02.jpg">
+			 <img class="img_small" id="img_small_32" title="2025-03-15 17:02" onclick="set_img(2)" src="/dynamic/camsave/s1746/2025-03-15_18:02.jpg">
 			 <p>2025-03-15 17:02 s:648kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_33" title="2025-03-15 16:42" onclick="set_img(4)" src="/dynamic/camsave/s1746/2025-03-15_17:42.jpg">
+			 <img class="img_small" id="img_small_33" title="2025-03-15 16:42" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-03-15_17:42.jpg">
 			 <p>2025-03-15 16:42 s:546kB1</a></p>
-			</div>
-					<div class="block_small">
-			 <img class="img_small" id="img_small_34" title="2025-03-15 16:22" onclick="set_img(3)" src="/dynamic/camsave/s1746/2025-03-15_17:22.jpg">
-			 <p>2025-03-15 16:22 s:592kB1</a></p>
-			</div>
-					<div class="block_small">
-			 <img class="img_small" id="img_small_35" title="2025-03-15 16:02" onclick="set_img(2)" src="/dynamic/camsave/s1746/2025-03-15_17:02.jpg">
-			 <p>2025-03-15 16:02 s:554kB1</a></p>
-			</div>
-					<div class="block_small">
-			 <img class="img_small" id="img_small_36" title="2025-03-15 15:42" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-03-15_16:42.jpg">
-			 <p>2025-03-15 15:42 s:593kB1</a></p>
 			</div>
 				<div class="clear"></div>
 	</div>
