@@ -136,8 +136,8 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 		var new_cam_IntervalId;
 		var act_img=0;
 		var stattr = {"id":"1746","short_name":"#1746","country":"GB","o_s":0,"o_e":0,"o2_s":0,"o2_e":0,"w_s":0,"w_e":0,"w2_s":0,"w2_e":0,"style":"U"};		
-		var photos = ["2025-07-14_18:42.jpg","2025-07-14_19:02.jpg","2025-07-14_19:21.jpg","2025-07-14_19:41.jpg","2025-07-15_11:21.jpg","2025-07-15_11:41.jpg","2025-07-15_12:02.jpg"];		var last_img=0;
-		var image_cnt=7;
+		var photos = ["2025-07-14_19:41.jpg","2025-07-15_11:21.jpg","2025-07-15_11:41.jpg","2025-07-15_12:02.jpg"];		var last_img=0;
+		var image_cnt=4;
 		$(document).ready(function(){  
 			//new_cam_IntervalId=setInterval(new_img,250);
 			//movie_running=1;
@@ -178,7 +178,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 		    if(!movie_running){
 			    $(".img_play").show();
 				act_img=0;
-				//last_img=7;
+				//last_img=4;
 				new_cam_IntervalId=setInterval(new_img,250);
 				movie_running=1;
 				$("#play_button i").addClass("fa-stop");
@@ -198,7 +198,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 			  $("#act_img_info").html($("#img_small_"+(image_cnt-act_img)).attr('title'));
 			  last_img=act_img;
 			  act_img+=1;
-			  if (act_img>7) {
+			  if (act_img>4) {
 					act_img=0; 
 					run_cnt--; 
 					if(run_cnt==0){
@@ -206,7 +206,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 					   movie_running=0;
 					   $("#play_button i").addClass("fa-play");
 					$("#play_button i").removeClass("fa-stop");
-					   act_img=7;
+					   act_img=4;
 					   }
 					}
 			  }
@@ -218,7 +218,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 	</script>
 	<style>
 	#top-bg{
-		background-image:url('/image/head/ua2_head.jpg');
+		background-image:url('/image/head/MKD.JPG');
 	}
 </style>
 </head>
@@ -360,13 +360,10 @@ $("#stations_dd").change(stationChanged);
 
     <div style="background:#333333;" > 
 	 	 <img class="img_fix" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg" id="camimg7">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg" id="camimg6">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_11:21.jpg" id="camimg5">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-14_19:41.jpg" id="camimg4">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-14_19:21.jpg" id="camimg3">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-14_19:02.jpg" id="camimg2">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-14_18:42.jpg" id="camimg1">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg" id="camimg4">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg" id="camimg3">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_11:21.jpg" id="camimg2">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-14_19:41.jpg" id="camimg1">
 	 	<div id="info_box">
 	<div id="info_texts">
 	<span class="replay" id="play_button" onclick="rePlay();"><i class="fa fa-play"></i></span>
@@ -403,32 +400,20 @@ $("#stations_dd").change(stationChanged);
 	</div>
 	<div id="small_images">
 					<div class="block_small">
-			 <img class="img_small" id="img_small_0" title="2025-07-15 11:02" onclick="set_img(7)" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg">
+			 <img class="img_small" id="img_small_0" title="2025-07-15 11:02" onclick="set_img(4)" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg">
 			 <p>2025-07-15 11:02 s:145kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_1" title="2025-07-15 10:41" onclick="set_img(6)" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg">
+			 <img class="img_small" id="img_small_1" title="2025-07-15 10:41" onclick="set_img(3)" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg">
 			 <p>2025-07-15 10:41 s:457kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_2" title="2025-07-15 10:21" onclick="set_img(5)" src="/dynamic/camsave/s1746/2025-07-15_11:21.jpg">
+			 <img class="img_small" id="img_small_2" title="2025-07-15 10:21" onclick="set_img(2)" src="/dynamic/camsave/s1746/2025-07-15_11:21.jpg">
 			 <p>2025-07-15 10:21 s:474kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_3" title="2025-07-14 18:41" onclick="set_img(4)" src="/dynamic/camsave/s1746/2025-07-14_19:41.jpg">
+			 <img class="img_small" id="img_small_3" title="2025-07-14 18:41" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-07-14_19:41.jpg">
 			 <p>2025-07-14 18:41 s:737kB1</a></p>
-			</div>
-					<div class="block_small">
-			 <img class="img_small" id="img_small_4" title="2025-07-14 18:21" onclick="set_img(3)" src="/dynamic/camsave/s1746/2025-07-14_19:21.jpg">
-			 <p>2025-07-14 18:21 s:657kB1</a></p>
-			</div>
-					<div class="block_small">
-			 <img class="img_small" id="img_small_5" title="2025-07-14 18:02" onclick="set_img(2)" src="/dynamic/camsave/s1746/2025-07-14_19:02.jpg">
-			 <p>2025-07-14 18:02 s:227kB1</a></p>
-			</div>
-					<div class="block_small">
-			 <img class="img_small" id="img_small_6" title="2025-07-14 17:42" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-07-14_18:42.jpg">
-			 <p>2025-07-14 17:42 s:258kB1</a></p>
 			</div>
 				<div class="clear"></div>
 	</div>
