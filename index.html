@@ -136,7 +136,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 		var new_cam_IntervalId;
 		var act_img=0;
 		var stattr = {"id":"1746","short_name":"#1746","country":"GB","o_s":0,"o_e":0,"o2_s":0,"o2_e":0,"w_s":0,"w_e":0,"w2_s":0,"w2_e":0,"style":"U"};		
-		var photos = ["2025-07-15_11:21.jpg","2025-07-15_11:41.jpg","2025-07-15_12:02.jpg"];		var last_img=0;
+		var photos = ["2025-07-15_11:41.jpg","2025-07-15_12:02.jpg","2025-07-17_11:22.jpg"];		var last_img=0;
 		var image_cnt=3;
 		$(document).ready(function(){  
 			//new_cam_IntervalId=setInterval(new_img,250);
@@ -218,7 +218,7 @@ Online Camera from CIC Hut Ben Nevis timelapse view</title>
 	</script>
 	<style>
 	#top-bg{
-		background-image:url('/image/head/nz_head.jpg');
+		background-image:url('/image/head/mbg.jpg');
 	}
 </style>
 </head>
@@ -359,10 +359,10 @@ $("#stations_dd").change(stationChanged);
 <div class="home_title"><i class="fa fa-camera"></i> Holfuy Webcamera: <b>CIC Hut Ben Nevis</b></div>
 
     <div style="background:#333333;" > 
-	 	 <img class="img_fix" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg" id="camimg3">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg" id="camimg2">
-	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_11:21.jpg" id="camimg1">
+	 	 <img class="img_fix" src="/dynamic/camsave/s1746/2025-07-17_11:22.jpg">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-17_11:22.jpg" id="camimg3">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg" id="camimg2">
+	 	    <img class="img_play" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg" id="camimg1">
 	 	<div id="info_box">
 	<div id="info_texts">
 	<span class="replay" id="play_button" onclick="rePlay();"><i class="fa fa-play"></i></span>
@@ -373,19 +373,84 @@ $("#stations_dd").change(stationChanged);
 	<span id="act_img_info" style="font-size:smaller;"></span>
 	<hr>
 		<table id="cam_data">
-		<tr><td>Last image: </td><td>2025-07-15 11:02 BST</td></tr>
-		<tr><td>Ambient temp.:</td><td> 12.5 °C</td></tr>
+		<tr><td>Last image: </td><td>2025-07-17 10:22 BST</td></tr>
+		<tr><td>Ambient temp.:</td><td> 13.8 °C</td></tr>
 		<tr><td>Mode: Night (OFF) </td><td>(Light: 0/1000)</td></tr>
 	</table>
 	</div>
 	<hr>
 	<div id="avg_tables">
-		
+	<style>
+.hour_table{
+	table-layout: fixed; 
+	padding:0px;
+	margin:0px;
+	font-size:smaller;
+	font-weight:bold;
+	border-spacing: 0px;
+	border: 1px solid #999999;
+	border-left: 0;
 
-<div style="height:20px; margin:2px 4px; background: white; font-size: 1em;  border:1px solid black; font-weight: bold; padding:30px 50px;">
-:( ... No data from this time interval. 
+}
+td{
+	text-align: center;
+}
+.outer {
+	position:relative;
+	margin:2px 4px;
+	background:white;
+}
+.inner {
+	overflow-x:auto;
+	overflow-y:visible;
+	margin-left:80px;
+}
+.h_header{
+	position:absolute;
+	left:0px;
+	width:80px;
+	font-size:1em;
+	text-align:left;
+	border-bottom: 0px solid #DDDDDD;
+}
+                 
+.h_pt{
+	width:30px;
+	min-width:30px;
+	max-width:30px;
+	background-color:white;
+}  
+.time_highlight{
+	font-size:larger;
+	background-color:#444444;
+	color:white;	
+	font-weight:800%; 
+	padding:1px 3px;
+}      
+	.h_img{
+	width:20px;
+}                   
+.w_dir{
+     background : #CCCCCC;
+	 font-size:large;
+}
+
+</style>
+
+
+<div class="outer" style="font-size:smaller;">
+			 <div class="inner">	
+<table class="hour_table"><tr ><td class="h_header">Time</td>	
+  
+<td class="h_pt">05:45</td><td class="h_pt"><b class="time_highlight">06h</b></td><td class="h_pt">06:15</td><td class="h_pt">06:30</td><td class="h_pt">06:45</td><td class="h_pt"><b class="time_highlight">07h</b></td><td class="h_pt">07:15</td><td class="h_pt">07:30</td><td class="h_pt">07:45</td><td class="h_pt"><b class="time_highlight">08h</b></td><td class="h_pt">08:15</td><td class="h_pt">08:30</td><td class="h_pt">08:45</td><td class="h_pt"><b class="time_highlight">09h</b></td><td class="h_pt">09:15</td><td class="h_pt">09:30</td><td class="h_pt">09:45</td><td class="h_pt"><b class="time_highlight">10h</b></td><td class="h_pt">10:15</td><td class="h_pt">10:30</td></tr><tr style="height:1.9em; font-size:larger;"><td class="h_header" style=" font-size:smaller; padding-top:5px;">Speed</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td style="background:#b1ff00;">17.4</td><td style="background:#32ff00;">13</td></tr><tr><td class="h_header">Gust <span style="font-size: smaller;"> (mph)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#ffa400">26.7</td><td bgcolor="#ffeb00">21.1</td></tr><tr ><td class="h_header" style="padding-top:5px;">Direction</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-210"></i></td><td class="h_img w_dir" style="background:whitesmoke;"><i class="fa fa-long-arrow-down rotate-220"></i></td></tr><tr><td class="h_header">Direction<br><span style="font-size: smaller;">Deg.</span></td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>-<br>-</td><td>SSW<br>210°</td><td>SW<br>216°</td></tr><tr><td class="h_header">Humidity <span style="font-size: smaller;"> (%)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#8080ff">100.0</td><td bgcolor="#8080ff">100.0</td></tr><tr><td class="h_header">Air . <span style="font-size: smaller;"> (°C)</span></td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td>-</td><td bgcolor="#ffde33">13.3</td><td bgcolor="#ffd933">13.8</td>	</tr>
+</table>
 </div>
-
+</div>
+<script>
+	var inners=document.getElementsByClassName("inner");
+	for(var i=0; i<inners.length; i++)
+		inners[i].scrollLeft=1000;
+</script>
 	<div class="replay" style="width:auto; padding:0px; margin:0px 4px; cursor:pointer;" onclick="new function() { window.location.href = '/en/weather/1746'; }"><center>More weather data</center></div>
 	 
 	</div>
@@ -399,16 +464,16 @@ $("#stations_dd").change(stationChanged);
 	</div>
 	<div id="small_images">
 					<div class="block_small">
-			 <img class="img_small" id="img_small_0" title="2025-07-15 11:02" onclick="set_img(3)" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg">
+			 <img class="img_small" id="img_small_0" title="2025-07-17 10:22" onclick="set_img(3)" src="/dynamic/camsave/s1746/2025-07-17_11:22.jpg">
+			 <p>2025-07-17 10:22 s:170kB1</a></p>
+			</div>
+					<div class="block_small">
+			 <img class="img_small" id="img_small_1" title="2025-07-15 11:02" onclick="set_img(2)" src="/dynamic/camsave/s1746/2025-07-15_12:02.jpg">
 			 <p>2025-07-15 11:02 s:145kB1</a></p>
 			</div>
 					<div class="block_small">
-			 <img class="img_small" id="img_small_1" title="2025-07-15 10:41" onclick="set_img(2)" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg">
+			 <img class="img_small" id="img_small_2" title="2025-07-15 10:41" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-07-15_11:41.jpg">
 			 <p>2025-07-15 10:41 s:457kB1</a></p>
-			</div>
-					<div class="block_small">
-			 <img class="img_small" id="img_small_2" title="2025-07-15 10:21" onclick="set_img(1)" src="/dynamic/camsave/s1746/2025-07-15_11:21.jpg">
-			 <p>2025-07-15 10:21 s:474kB1</a></p>
 			</div>
 				<div class="clear"></div>
 	</div>
